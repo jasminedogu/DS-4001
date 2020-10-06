@@ -298,6 +298,6 @@ Here, we are using both the 2018 and 2019 datasets. We have made bar graphs to a
 
 
 #### leaflet
-![](featured.png){width=10%}
+![](leaflet.png){width=10%}
 <br> The ```leaflet``` package was created by 
 
