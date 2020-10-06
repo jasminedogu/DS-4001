@@ -314,8 +314,40 @@ fig
 ```
 For example, in this example, we can see the modes are different for the different y variables that we are analyzing. As the overall rank increases, we can see it's relationship with GDP Per Capita (straight blue line), Healthy Life Expectancy (orange straight line with dots), and Social Support (green dots). By using ```mode= ' '```, the user can specify what they want their line plots to look like. 
 
+### Line Graph with Restyle Button
+With Plotly, the user can add a "restyle" method that can then modify the data/data attributes of the graph.
+```{r}
+head(nineteen)
 
-## Choropleth Maps in R
+fig <- plot_ly(nineteen, x = ~Score)
+fig <- fig %>% add_lines(y = ~ Freedom.to.make.life.choices)
+
+fig <- fig %>% layout(
+  title = "Freedom to Make Life Choices vs Score",
+  xaxis = list(domain = c(0.1, 1)),
+  yaxis = list(title = "Freedom to Make Life Choices"),
+  updatemenus = list(
+    list(
+      type = "buttons",
+      y = 0.8,
+      buttons = list(
+
+        list(method = "restyle",
+             args = list("line.color", "blue"),
+             label = "Blue"),
+
+        list(method = "restyle",
+             args = list("line.color", "red"),
+             label = "Red")))
+  ))
+
+fig
+```
+Above, we have an example of how the user can modify the color of the Line Plot depending on the button they choose. The 'Blue' button will show the graph in a blue color, whereas the 'Red' button will show the graph in a red color. Here, we can see that as the happiness score of countries generally go up, their freedom to make life choices also goes up; there is a direct relationship.
+
+## Choropleth Maps in R {.tabset}
+
+### Basic Choropleth Map
 ```{r, warning=FALSE, messages=FALSE}
 #In order to make a choropleth map using plotly, we need to convert all 
 #the country names that we have to their associated country abbreviation
@@ -327,14 +359,73 @@ nineteen<- read.csv('2019.csv')
 nineteen$Country.or.region <- as.factor(nineteen$Country.or.region)
 nineteen$Country.or.region<- countrycode(nineteen$Country.or.region, 'country.name', 'iso3c')
 
-fig <- plot_ly(nineteen, type='choropleth', locations=nineteen$Country.or.region, z=nineteen$Score, text=nineteen$GDP.per.capita, colorscale="Blues")
+fig <- plot_ly(nineteen, type='choropleth', locations=nineteen$Country.or.region, z=nineteen$Score, text=nineteen$GDP.per.capita, colorscale="YlGnBu",reversescale = T)
 fig <- fig %>% layout(
-    title = "2019 Happiness Report- Shown by GDP per Capita"
+    title = "2019 Happiness Report Shown by GDP per Capita"
 )
 fig <- fig %>% colorbar(title = "GDP per Capita")
 fig
-
 ```
+This is an example of a choropleth map, and the user can hover over the countries to see the country name as well as the GDP per capita value for that place. 
+
+### Mapping with Aggregations
+Plotly--in addition to a library called ```listviewer``` which is designed to help see, understand, and maybe even modify your R lists--allows the user to make choropleth maps with a dropdown option of the operation they would like to perform to the variable they are exploring.
+```{r}
+#We must import 'listviewer' in order to make a map with aggregations
+library(listviewer)
+eighteen<- read.csv('2018.csv')
+nineteen<- read.csv('2019.csv')
+all_years<- rbind(nineteen,eighteen)
+
+s <- schema()
+agg <- s$transforms$aggregate$attributes$aggregations$items$aggregation$func$values
+
+l = list()
+for (i in 1:length(agg)) {
+  ll = list(method = "restyle",
+            args = list('transforms[0].aggregations[0].func', agg[i]),
+            label = agg[i]) 
+  l[[i]] = ll
+}
+
+fig <- all_years %>%
+  plot_ly(
+    type = 'choropleth',
+    locationmode = 'country names',
+    locations = ~Country.or.region,
+    z = ~GDP.per.capita,
+    autocolorscale = F,
+    reversescale = T,
+    colorscale = 'YlGnBu', 
+    transforms = list(list(
+      type = 'aggregate',
+      groups = ~Country.or.region,
+      aggregations = list(
+        list(target = 'z', func = 'sum', enabled = T)
+      )
+    ))
+  )
+fig <- fig %>% layout(
+    title = "<b>World Happiness (2018-2019)</b>",
+    geo = list(
+      showframe = F,
+      showcoastlines = F
+    ),
+    updatemenus = list(
+      list(
+        x = 0.25,
+        y = 1.04,
+        xref = 'paper',
+        yref = 'paper',
+        yanchor = 'top',
+        buttons = l
+      )
+    )
+  )
+
+fig
+```
+In this example above, we are looking at the relationship of GDP per capita in the years 2018-2019. You can see, that depending on the different operations (max, min, std dev, etc), the values on the choropleth map change accordingly. The user can also hover over the map to see the country name and specific value.
 
 ## Not a fan of Plotly? Here are some alternatives! {.tabset}
 
