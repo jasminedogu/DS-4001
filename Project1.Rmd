@@ -289,15 +289,72 @@ subplot(fig2,fig1) %>% layout(title ="Top Ten Happiness Scores Based on Country"
 ```
 Here, we are using both the 2018 and 2019 datasets. We have made bar graphs to analyze general trends of their overall score based on the country/region. We can see that both years have similar results; however, in 2018, Norway was the country with the highest Happiness Score, and in 2019, Finland was the country with the highest Happiness Score.
 
+## Line Plots {.tabset}
+
+### Basic Line Plot
+Plotly allows the user to create simple line plots to view the relationship between two variables.
+```{r, warning=FALSE, messages=FALSE}
+nineteen<- read.csv('2019.csv')
+fig <- plot_ly(nineteen, x = ~Overall.rank, y = ~Healthy.life.expectancy, type = 'scatter', mode = 'lines')
+fig
+```
+This line plot allows us to see the general pattern that with overall rank increasing (getting worse), there's a general pattern with the healthy life expectancy decreasing. 
+
+### Line Plot Mode
+Plotly also allows the user to change the mode of the lines. 
+```{r, warning=FALSE, messages=FALSE}
+nineteen<- read.csv('2019.csv')
+
+fig <- plot_ly(nineteen, x = ~Overall.rank, y = ~GDP.per.capita, name = 'GDP Per Capita', type = 'scatter', mode = 'lines') 
+fig <- fig %>% add_trace(y = ~Healthy.life.expectancy, name = 'Healthy Life Expectancy', mode = 'lines+markers') 
+fig <- fig %>% add_trace(y = ~Social.support, name = 'Social Support', mode = 'markers')
+
+fig
+
+```
+For example, in this example, we can see the modes are different for the different y variables that we are analyzing. As the overall rank increases, we can see it's relationship with GDP Per Capita (straight blue line), Healthy Life Expectancy (orange straight line with dots), and Social Support (green dots). By using ```mode= ' '```, the user can specify what they want their line plots to look like. 
+
+
+## Choropleth Maps in R
+```{r, warning=FALSE, messages=FALSE}
+#In order to make a choropleth map using plotly, we need to convert all 
+#the country names that we have to their associated country abbreviation
+
+#To convert the country names to their codes, load the "countrycode" package
+library(countrycode)
+
+nineteen<- read.csv('2019.csv')
+nineteen$Country.or.region <- as.factor(nineteen$Country.or.region)
+nineteen$Country.or.region<- countrycode(nineteen$Country.or.region, 'country.name', 'iso3c')
+
+fig <- plot_ly(nineteen, type='choropleth', locations=nineteen$Country.or.region, z=nineteen$Score, text=nineteen$GDP.per.capita, colorscale="Blues")
+fig <- fig %>% layout(
+    title = "2019 Happiness Report- Shown by GDP per Capita"
+)
+fig <- fig %>% colorbar(title = "GDP per Capita")
+fig
+
+```
 
 ## Not a fan of Plotly? Here are some alternatives! {.tabset}
 
 #### ggplot2
+
 ![](ggplot2image.png){width=10%}
 <br> The ```ggplot2``` package was created by Hadley Wickham and offers yet another powerful way of creating complex but elegant visualizations and graphics. Plotly and ggplot2 have a lot of differences in their syntax, customization, and documentation. 
 
+To install the ```ggplot2``` package and ensure you properly load it in, use the following commands:
+<br> 1) ```install.packages("ggplot2")```
+<br> 2) ```library(ggplot2)```
+
 
 #### leaflet
+
 ![](leaflet.png){width=10%}
 <br> The ```leaflet``` package was created by 
+
+To install the ```leaflet``` package and ensure you properly load it in, use the following commands:
+<br> 1) ```install.packages("leaflet")```
+<br> 2) ```library(leaflet)```
+
 
