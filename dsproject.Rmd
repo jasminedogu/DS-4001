@@ -47,42 +47,43 @@ kable(table)
 
 ### Usage
 ```plotly``` is a data visualization package that can be used to make the following types of graphics: 
-- line plots 
-- scatter plots 
-- area charts 
-- bar charts 
-- error bars 
-- box plots 
-- histograms 
-- heatmaps 
-- subplots 
-- multiple-axes 
-- 3D Charts
+<br> - line plots 
+<br> - scatter plots 
+<br> - area charts 
+<br> - bar charts 
+<br> - error bars 
+<br> - box plots 
+<br> - histograms 
+<br> - heatmaps 
+<br> - subplots 
+<br> - multiple-axes 
+<br> - 3D Charts
 
 ### Dependencies 
 - ```R (≥ 3.2.0)``` - R version 3.2.0 or later
 - ```ggplot2 (≥ 3.0.0)``` - ggplot2 version 3.0.0 or later
+
 ### Imports (Exogenous Package Use)
-- tools
-- scales 
-- httr 
-- jsonlite (≥ 1.6)
-- magrittr 
-- digest 
-- viridisLite 
-- base64enc 
-- htmltools (≥ 0.3.6) 
-- htmlwidgets (≥ 1.3) 
-- tidyr, hexbin 
-- RColorBrewer 
-- dplyr 
-- tibble 
-- lazyeval (≥ 0.2.0) 
-- rlang 
-- crosstalk 
-- purrr 
-- data.table 
-- promises
+<br> - tools
+<br> - scales 
+<br> - httr 
+<br> - jsonlite (≥ 1.6)
+<br> - magrittr 
+<br> - digest 
+<br> - viridisLite 
+<br> - base64enc 
+<br> - htmltools (≥ 0.3.6) 
+<br> - htmlwidgets (≥ 1.3) 
+<br> - tidyr, hexbin 
+<br> - RColorBrewer 
+<br> - dplyr 
+<br> - tibble 
+<br> - lazyeval (≥ 0.2.0) 
+<br> - rlang 
+<br> - crosstalk 
+<br> - purrr 
+<br> - data.table 
+<br> - promises
 
 ## About the Data Set
 The World Happiness Report is a survey of the state of global happiness. This survey ranks 155 countries depending on their level of happiness, and analyzes the factors that leads to a happier country/citizens. The happiness scores and rankings are determined form the Gallup World Poll. There are six factors that the happiness score estimates: economic production, social support, life expectancy, freedom, absence of corruption, and generosity. These are believed to all contribute, in some manner, to the increase or decrease of global happiness. Our aim, through using this dataset, is to gain a better understanding of the factors that lead to a happier country, while also showing the different capabilities that the ```Plotly``` package allows. 
