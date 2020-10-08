@@ -180,7 +180,6 @@ fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Score, color 
 fig <- fig %>% layout(
          xaxis = list(title = 'Healthy Life Expectancy'),
          yaxis = list(title = 'Score'))
-
 fig
 ```
 In the example above, we have grouped the points by Country/Region. We can see that each grouping (in this case - country) was assigned a different shade of blue. As a result, we can analyze the Score vs Healthy Life Expectancy broken down by the Country. 
