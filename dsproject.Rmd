@@ -21,27 +21,31 @@ library(ggplot2)
 library(knitr)
 ```
 
-## About Plotly
+## About Plotly {.tabset}
 
-This graphing library is free and open source. It allows the user to make many different types of interactive, publication-quality plots. Some of the many things we can create with Plotly are line plots, scatter plots, area charts, bar charts, error bars, box plots, histograms, heatmaps, subplots, multiple-axes, and 3D Charts. One benefit of Plotly is that it allows the user to hover their mouse over the plots and see data points, zoom in or out of specific areas, or capture stills.
+This graphing library is free and open source. It allows the user to make many different types of interactive, publication-quality plots. Some of the many things we can create with Plotly are line plots, scatter plots, area charts, bar charts, error bars, box plots, histograms, heatmaps, subplots, multiple-axes, and 3D Charts. One benefit of Plotly is that it allows the user to hover their mouse over the plots and see data points, zoom in or out of specific areas, or capture stills. It also allows the user to click on different buttons, or use other interactive tools, to see different data points and analyzations. 
 
 ```plotly``` is a product of the tech company "Plotly" started by Alex Johnson, Jack Parmer, Chris Parmer, and Matthew Sundquist. The package is written in JavaScript, but can be used in other languages syntaxes such as R and Python. 
-## Why use Plotly? 
+
+### Why use Plotly? 
 Data visualization acts as an accentuating yet critical component of data science. Although quantitative analysis and technical knowledge drive the extraction of insight from data, perhaps what acts as a just as equal, if not more, counterpart is the presentation of findings. Data visualization perfectly accentuates data analytics, as it allows for data scientists to visually present and communicate important findings within the data in a digestible manner to key stakeholders. Traditional data visualization packages, such as ggplot2 or plotting functions within native R, provide means and methods of accomplishing this. However, ```plotly's``` value proposition is the ability to expound upon tradition two dimensional plotting techniques by offering interactivity and dimensionality that allows both data scientists and key stakeholders alike to extract more complex and meaningful insights, beyond what is capable in 2d graphics.
-## How to Install Plotly
+
+### How to Install Plotly
 There are two ways of installing Plotly. One of the ways is by downloading from CRAN with the command ```install.packages("plotly")```. However, this may not be the most updated version so the other method of installing the library is suggested. This method is by downloading it from Github with the command ```devtools::install_github("ropensci/plotly")``` . This will ensure the latest version is downloaded. 
-## How to Load the Plotly Package
+
+### How to Load the Plotly Package
 In order to use the Plotly package, the user must first load it in using the command ```library(plotly)```.
-### Some Important Info About Plotly {.tabset}
+
+## Some Important Info About Plotly {.tabset}
 For an in-depth overview of the plotly package, click [here](https://cran.r-project.org/web/packages/plotly/index.html).
-#### Version History
+
+### Version History
 ```{r, echo = FALSE}
 table <- data.frame('Current Version' = '4.9.2.1')
 kable(table)
 ```
 
-#### Usage
-
+### Usage
 ```plotly``` is a data visualization package that can be used to make the following types of graphics: 
 - line plots 
 - scatter plots 
@@ -54,10 +58,11 @@ kable(table)
 - subplots 
 - multiple-axes 
 - 3D Charts
-#### Dependencies 
+
+### Dependencies 
 - ```R (≥ 3.2.0)``` - R version 3.2.0 or later
 - ```ggplot2 (≥ 3.0.0)``` - ggplot2 version 3.0.0 or later
-#### Imports (Exogenous Package Use)
+### Imports (Exogenous Package Use)
 - tools
 - scales 
 - httr 
@@ -78,9 +83,24 @@ kable(table)
 - purrr 
 - data.table 
 - promises
+
 ## About our Data Set
 The World Happiness Report is a survey of the state of global happiness. This survey ranks 155 countries depending on their level of happiness, and analyzes the factors that leads to a happier country/citizens. The happiness scores and rankings are determined form the Gallup World Poll. There are six factors that the happiness score estimates: economic production, social support, life expectancy, freedom, absence of corruption, and generosity. These are believed to all contribute, in some manner, to the increase or decrease of global happiness. Our aim, through using this dataset, is to gain a better understanding of the factors that lead to a happier country, while also showing the different capabilities that the ```Plotly``` package allows. 
-For an in-depth overview of the dataset used below, click [here](https://www.kaggle.com/unsdsn/world-happiness).
+The variables used can be further described:
+<br> - Region: separated by continent and location
+<br> - Happiness Rank: ranks each country 1-155, based on Happiness Score
+<br> - Happiness Score: "How would you rate your happiness on a scale from 1-10?"
+<br> - Standard Error: SE from the Happiness Score
+<br> - Economy (GDP per capita): a calculation of the extent to which GDP effects the Happiness Score
+<br> - Family: a calculation of the extent to which Family effects the Happiness Score
+<br> - Health (Life Expectancy): a calculation of the extent to which modern life expectancy effects the Happiness Score
+<br> - Freedom: a calculation of the extent to which freedom effects the Happiness Score
+<br> - Trust (Government Corruption): a calculation of the extent to which the perception of government corruption effects the Happiness Score
+<br> - Generosity: a calculation of the extent to which generosity effects the Happiness Score
+*Adding up the numbers from Economy, Family, Health, Freedom, Trust, and Generosity gives us the overall Happiness Score
+
+For an in-depth overview of the dataset used above, click [here](https://www.kaggle.com/unsdsn/world-happiness).
+
 # Examples of plots that can be made with plotly 
 ```{r, include=FALSE}
 #Reading the data in
@@ -105,7 +125,7 @@ head(nineteen)
 ```
 
 ## Scatterplots  {.tabset}
-Plotly allows the user to make many different types of scatterplots. These can range from the basic 2D scatterplot analyzing two variables, to more complex 3D structures that look at the relationship between three variables. Below are some examples of the many types of scatterplots that can be produced with Plotly.
+Plotly allows the user to make many different types of scatterplots. These can range from the basic 2D scatterplots analyzing two variables, to more complex 3D structures that look at the relationship between three variables. Below are some examples of the many types of scatterplots that can be produced with Plotly.
 
 ### Basic 2D Scatter Plots
 Plotly makes it extremely easy to create simple 2D scatterplots to see relationships between two 
@@ -114,7 +134,7 @@ variables.
 fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Overall.rank)
 fig
 ```
-This scatterplot shows that as Healthy Life Expectancy increases, the overall rank decreases.This means that countries with citizens who have higher Healthy Life Expectancies are also more likely  to be the countries with a better ranking (lower, in this case, is better). 
+This scatterplot shows that as Healthy Life Expectancy increases, the overall rank decreases. This means that countries with citizens who have higher Healthy Life Expectancies are also more likely to be the countries with a better ranking (lower, in this case, is better). 
 
 ### Styled 2D Scatter Plots 
 ```{r, warning=FALSE,message=FALSE}
@@ -148,7 +168,7 @@ As discussed on the previous example, Plotly allows the user to have a colorscal
 fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Score, color = ~Country.or.region , colors="Blues")
 fig
 ```
-In the example above, we have grouped the points by Country/Region. We can see that each grouping (in this case country) was assigned a different shade of blue. As a result, we can analyze the Score vs Healthy Life Expectancy broken down by the Country. 
+In the example above, we have grouped the points by Country/Region. We can see that each grouping (in this case - country) was assigned a different shade of blue. As a result, we can analyze the Score vs Healthy Life Expectancy broken down by the Country. 
 
 ### 3D Scatter Plots
 With Plotly, the user can also create 3D scatter plots to analyze three different variables and their relationships. 
@@ -259,7 +279,7 @@ subplot(fig2,fig1) %>% layout(title ="Top Ten Happiness Scores Based on Country"
 Here, we are using both the 2018 and 2019 datasets. We have made bar graphs to analyze general trends of their overall score based on the country/region. We can see that both years have similar results; however, in 2018, Norway was the country with the highest Happiness Score, and in 2019, Finland was the country with the highest Happiness Score.
 
 ### Bar Graphs Using a Slider
-```{r}
+```{r, warning=FALSE,message=FALSE}
 library(dplyr)
 library(plotly)
 y2015 <- read.csv('2015.csv')
@@ -317,7 +337,6 @@ For example, in this example, we can see the modes are different for the differe
 ### Line Graph with Restyle Button
 With Plotly, the user can add a "restyle" method that can then modify the data/data attributes of the graph.
 ```{r}
-head(nineteen)
 fig <- plot_ly(nineteen, x = ~Score)
 fig <- fig %>% add_lines(y = ~ Freedom.to.make.life.choices)
 fig <- fig %>% layout(
@@ -417,7 +436,7 @@ In this example above, we are looking at the relationship of GDP per capita in t
 
 ## Not a fan of Plotly? Here are some alternatives! {.tabset}
 
-#### ggplot2
+### ggplot2
 
 ![](ggplot2image.png){width=10%}
 <br> The ```ggplot2``` package was created by Hadley Wickham and offers yet another powerful way of creating complex but elegant visualizations and graphics. Plotly and ggplot2 have a lot of differences in their syntax, customization, and documentation. 
@@ -427,7 +446,7 @@ To install the ```ggplot2``` package and ensure you properly load it in, use the
 <br> 2) ```library(ggplot2)```
 
 
-#### leaflet
+### leaflet
 
 ![](leaflet.png){width=10%}
 <br> The ```leaflet``` package was created by 
@@ -435,6 +454,22 @@ To install the ```ggplot2``` package and ensure you properly load it in, use the
 To install the ```leaflet``` package and ensure you properly load it in, use the following commands:
 <br> 1) ```install.packages("leaflet")```
 <br> 2) ```library(leaflet)```
+
+
+## Plotly in the Real World {.tabset}
+Plotly is used around the globe, from companies to schools to media sites and more. The company, Plotly Technologies, has also seen some major advancements lately. Here are a few things going on with Plotly in the real world:
+
+### Plotly Funding and Users
+A few years ago, Plotly closed a round of $5.5 million in funding as the popularity of the platform has been on the rise. As of 2015, the platform had well over 200,000 users - which included some well-known names. The Boston Globe, The Guardian, Google, NASA, and the US Air Force were some of the early adopters to use Plotly.
+More information can be found by clicking [here](https://betakit.com/plotly-raises-5-5-million-series-a-from-mhs-capital-real-ventures-others/).
+
+### Plotly and Artificial Intelligence Applications
+In January, Plotly received an additional $1.7 million in funding from Scale AI, which is a leading AI investing and innovation hub in Canada. The money will be used for the development and advancement of Plotly's Dash Software, a platform the builds interactive analytic applications. Dash allows users to create and operate AI and machine learning systems within R and Python.
+More information can be found by clicking [here](https://www.globenewswire.com/news-release/2020/01/14/1970313/0/en/Scale-AI-awards-1-7M-to-Plotly-to-speed-innovation-in-supply-chain-AI-technology.html).
+
+### Plotly as a Best Place to Work
+Back in February, Canadian SME National Business Awards named Plotly Technologies as one of the top places to work in the country, and nominated Plotly as Business of the Year. Plotly has major professional development opportunities within the company, as well as an industry-leading benefits package and highly interactive working environment.
+More information can be found by clicking [here](https://www.globenewswire.com/news-release/2020/02/04/1979521/0/en/Plotly-Named-Best-Place-to-Work.html).
 
 ## Final Thoughts and Opinions on Plotly
 
