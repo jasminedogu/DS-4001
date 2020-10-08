@@ -134,6 +134,10 @@ Plotly makes it extremely easy to create simple 2D scatterplots to see relations
 variables.
 ```{r, warning=FALSE,message=FALSE}
 fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Overall.rank)
+fig <- fig %>% layout(
+         xaxis = list(title = 'Healthy Life Expectancy'),
+         yaxis = list(title = 'Overall Rank'))
+
 fig
 ```
 This scatterplot shows that as Healthy Life Expectancy increases, the overall rank decreases. This means that countries with citizens who have higher Healthy Life Expectancies are also more likely to be the countries with a better ranking (lower, in this case, is better). 
@@ -148,6 +152,10 @@ fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Overall.rank,
 fig <- fig %>% layout(title = 'Styled Scatter',
          yaxis = list(zeroline = FALSE),
          xaxis = list(zeroline = FALSE))
+fig <- fig %>% layout(
+         xaxis = list(title = 'Healthy Life Expectancy'),
+         yaxis = list(title = 'Overall Rank'))
+
 fig
 ```
 Here, we have the same relationship being analyzed as we did in the Basic 2D Scatterplot, but we have styled the scatter plot through manipulations to the data markers.   
@@ -157,9 +165,10 @@ Plotly also allows the user to have a colorscale dependent on a specific groupin
 ```{r, warning=FALSE, messages=FALSE}
 fig <- plot_ly(nineteen, x = ~Freedom.to.make.life.choices, y = ~Social.support, text = ~Country.or.region, type = 'scatter', mode = 'markers', color = ~Score, colors = 'Blues',
         marker = list(size = ~Score, opacity = 0.7,sizemode = 'diameter'))
-fig <- fig %>% layout(title = 'Social Support and Freedom to Make Life Choices per Country',
-         xaxis = list(showgrid = FALSE),
-         yaxis = list(showgrid = FALSE))
+fig <- fig %>% layout(
+         xaxis = list(title = 'Freedom to Make Life Choices'),
+         yaxis = list(title = 'Social Support'))
+
 fig
 ```
 Here, we have an example of a qualitative colorscale where the scatterplot is broken down by the overall scores. The darker colors signify a higher overall score, and the lighter colors signify a lower overall score. We can see that the countries that have the highest freedom to make life choices and the highest social support are also the highest in their scores. Some of these countries are Iceland, Denmark, Finland, Australia, and Canada. 
@@ -168,6 +177,10 @@ Here, we have an example of a qualitative colorscale where the scatterplot is br
 As discussed on the previous example, Plotly allows the user to have a colorscale dependent on a specific grouping. For Qualitative groupings, the legend will separate the colors based on the specific groupings. 
 ```{r, message=FALSE, warning=FALSE}
 fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Score, color = ~Country.or.region , colors="Blues")
+fig <- fig %>% layout(
+         xaxis = list(title = 'Healthy Life Expectancy'),
+         yaxis = list(title = 'Score'))
+
 fig
 ```
 In the example above, we have grouped the points by Country/Region. We can see that each grouping (in this case - country) was assigned a different shade of blue. As a result, we can analyze the Score vs Healthy Life Expectancy broken down by the Country. 
@@ -321,6 +334,10 @@ Plotly allows the user to create simple line plots to view the relationship betw
 ```{r, warning=FALSE, messages=FALSE}
 nineteen<- read.csv('2019.csv')
 fig <- plot_ly(nineteen, x = ~Overall.rank, y = ~Healthy.life.expectancy, type = 'scatter', mode = 'lines')
+fig <- fig %>% layout(
+         xaxis = list(title = 'Overall Rank'),
+         yaxis = list(title = 'Healthy Life Expectancy'))
+
 fig
 ```
 This line plot allows us to see the general pattern that with overall rank increasing (getting worse), there's a general pattern with the healthy life expectancy decreasing. 
@@ -332,6 +349,10 @@ nineteen<- read.csv('2019.csv')
 fig <- plot_ly(nineteen, x = ~Overall.rank, y = ~GDP.per.capita, name = 'GDP Per Capita', type = 'scatter', mode = 'lines') 
 fig <- fig %>% add_trace(y = ~Healthy.life.expectancy, name = 'Healthy Life Expectancy', mode = 'lines+markers') 
 fig <- fig %>% add_trace(y = ~Social.support, name = 'Social Support', mode = 'markers')
+fig <- fig %>% layout(
+         xaxis = list(title = 'Overall Rank'),
+         yaxis = list(title = 'Different Variables (GDP, HLE, SS)'))
+
 fig
 ```
 For example, in this example, we can see the modes are different for the different y variables that we are analyzing. As the overall rank increases, we can see it's relationship with GDP Per Capita (straight blue line), Healthy Life Expectancy (orange straight line with dots), and Social Support (green dots). By using ```mode= ' '```, the user can specify what they want their line plots to look like. 
