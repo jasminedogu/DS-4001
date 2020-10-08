@@ -476,7 +476,11 @@ More information can be found by clicking [here](https://www.globenewswire.com/n
 <center> ![](Plotly3.png){width=30%}</center>
 
 ## Final Thoughts and Opinions on Plotly
+Overall, plotly has ample upsides for usage. With the package, we were able to effectively create intricate and complex graphics that allow users to extract even deeper insights. Although, unlike other data visualization packages, plotly has interactive features; ones that we found to be particularly important and useful were the ability to hover over observations to see exact numerical values, or zoom in and out of graphs. In addition, from a holistic standpoint, it is also advantageous that plotly can be used in other language syntaxes such as JavaScript, Python, and Mathlab, making it versatile across potential platforms for data science.
 
+However, despite these value adds, we found that a lot of the basic functions of plotly could also be achieved in ggplot2, which is arguably easier to use. We can still achieve high quality graphics with ggplot2, but plotly simply adds a new dimension that may not always be worth the marginal effort of actually taking the time and effort to execute it. In addition, plotly requires a lot of tuning in order to get it the exact way that you want it. Arguably, we see this in ggplot2, but since there is simply just a larger number of capabilities in plotly, there are more arguments to consider and establish.
+
+Overall, plotly serves as a great data visualization tool for data scientists to use but can easily be replaced with basic functions of the ggplot2 package.
 
 ## GitHub Repo {.tabset}
 To view or download the files, access the Github Repo [here](https://github.com/jasminedogu/DS4001-Project1).
