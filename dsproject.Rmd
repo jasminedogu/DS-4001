@@ -84,7 +84,7 @@ kable(table)
 - data.table 
 - promises
 
-## About our Data Set
+## About the Data Set
 The World Happiness Report is a survey of the state of global happiness. This survey ranks 155 countries depending on their level of happiness, and analyzes the factors that leads to a happier country/citizens. The happiness scores and rankings are determined form the Gallup World Poll. There are six factors that the happiness score estimates: economic production, social support, life expectancy, freedom, absence of corruption, and generosity. These are believed to all contribute, in some manner, to the increase or decrease of global happiness. Our aim, through using this dataset, is to gain a better understanding of the factors that lead to a happier country, while also showing the different capabilities that the ```Plotly``` package allows. 
 The variables used can be further described:
 <br> - Region: separated by continent and location
