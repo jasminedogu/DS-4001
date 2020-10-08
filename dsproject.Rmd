@@ -453,8 +453,6 @@ To install the ```ggplot2``` package and ensure you properly load it in, use the
 
 Leaflet was developed by Vladimir Agafonkin in 2011 in JavaScript. Although a data visualization tool, leaflet specializes in creating high quality interactive maps. Leaflet is a great tool to add map elements such as markers and layers onto of GeoJSON files.
 
-<br> The ```leaflet``` package was created by 
-
 To install the ```leaflet``` package and ensure you properly load it in, use the following commands:
 <br> 1) ```install.packages("leaflet")```
 <br> 2) ```library(leaflet)```
