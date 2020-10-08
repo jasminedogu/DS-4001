@@ -164,7 +164,7 @@ Here, we have an example of a qualitative colorscale where the scatterplot is br
 
 ### 2D Scatterplot with Qualitative Colorscales
 As discussed on the previous example, Plotly allows the user to have a colorscale dependent on a specific grouping. For Qualitative groupings, the legend will separate the colors based on the specific groupings. 
-```{r, warning=FALSE, messages=FALSE}
+```{r, message=FALSE, warning=FALSE}
 fig <- plot_ly(data = nineteen, x = ~Healthy.life.expectancy, y = ~Score, color = ~Country.or.region , colors="Blues")
 fig
 ```
@@ -438,7 +438,7 @@ In this example above, we are looking at the relationship of GDP per capita in t
 
 ### ggplot2
 
-![](ggplot2image.png){width=10%}
+![](ggplot2image.png){width=17%}
 <br> The ```ggplot2``` package was created by Hadley Wickham and offers yet another powerful way of creating complex but elegant visualizations and graphics. Plotly and ggplot2 have a lot of differences in their syntax, customization, and documentation. 
 
 To install the ```ggplot2``` package and ensure you properly load it in, use the following commands:
@@ -448,7 +448,7 @@ To install the ```ggplot2``` package and ensure you properly load it in, use the
 
 ### leaflet
 
-![](leaflet.png){width=10%}
+![](leaflet.png){width=20%}
 <br> The ```leaflet``` package was created by 
 
 To install the ```leaflet``` package and ensure you properly load it in, use the following commands:
@@ -462,14 +462,21 @@ Plotly is used around the globe, from companies to schools to media sites and mo
 ### Plotly Funding and Users
 A few years ago, Plotly closed a round of $5.5 million in funding as the popularity of the platform has been on the rise. As of 2015, the platform had well over 200,000 users - which included some well-known names. The Boston Globe, The Guardian, Google, NASA, and the US Air Force were some of the early adopters to use Plotly.
 More information can be found by clicking [here](https://betakit.com/plotly-raises-5-5-million-series-a-from-mhs-capital-real-ventures-others/).
+<center>![](Plotly2.jpeg){width=30%}</center>
 
 ### Plotly and Artificial Intelligence Applications
 In January, Plotly received an additional $1.7 million in funding from Scale AI, which is a leading AI investing and innovation hub in Canada. The money will be used for the development and advancement of Plotly's Dash Software, a platform the builds interactive analytic applications. Dash allows users to create and operate AI and machine learning systems within R and Python.
 More information can be found by clicking [here](https://www.globenewswire.com/news-release/2020/01/14/1970313/0/en/Scale-AI-awards-1-7M-to-Plotly-to-speed-innovation-in-supply-chain-AI-technology.html).
+<br>
+<center>![](Plotly1.png){width=18%}</center>
 
 ### Plotly as a Best Place to Work
 Back in February, Canadian SME National Business Awards named Plotly Technologies as one of the top places to work in the country, and nominated Plotly as Business of the Year. Plotly has major professional development opportunities within the company, as well as an industry-leading benefits package and highly interactive working environment.
 More information can be found by clicking [here](https://www.globenewswire.com/news-release/2020/02/04/1979521/0/en/Plotly-Named-Best-Place-to-Work.html).
+<center> ![](Plotly3.png){width=30%}</center>
 
 ## Final Thoughts and Opinions on Plotly
 
+
+## To view or download the files for this R Markdown, view the Github Repo 
+[here](https://cran.r-project.org/web/packages/plotly/index.html).
