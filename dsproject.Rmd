@@ -478,5 +478,5 @@ More information can be found by clicking [here](https://www.globenewswire.com/n
 ## Final Thoughts and Opinions on Plotly
 
 
-## To view or download the files for this R Markdown, view the Github Repo 
-[here](https://cran.r-project.org/web/packages/plotly/index.html).
+## GitHub Repo {.tabset}
+To view or download the files, access the Github Repo [here](https://github.com/jasminedogu/DS4001-Project1).
