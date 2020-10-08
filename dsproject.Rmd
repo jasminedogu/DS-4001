@@ -36,7 +36,7 @@ There are two ways of installing Plotly. One of the ways is by downloading from 
 ### How to Load the Plotly Package
 In order to use the Plotly package, the user must first load it in using the command ```library(plotly)```.
 
-## Some Important Info About Plotly {.tabset}
+## Important Info About Plotly {.tabset}
 For an in-depth overview of the plotly package, click [here](https://cran.r-project.org/web/packages/plotly/index.html).
 
 ### Version History
@@ -101,7 +101,8 @@ The variables used can be further described:
 
 For an in-depth overview of the dataset used above, click [here](https://www.kaggle.com/unsdsn/world-happiness).
 
-# Examples of plots that can be made with plotly 
+## Examples of plots that can be made with plotly 
+
 ```{r, include=FALSE}
 #Reading the data in
 fifteen <- read.csv('2015.csv')
